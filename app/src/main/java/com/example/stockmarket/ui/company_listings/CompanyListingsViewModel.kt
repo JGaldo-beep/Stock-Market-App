@@ -10,7 +10,6 @@ import com.example.stockmarket.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -37,7 +36,7 @@ class CompanyListingsViewModel @Inject constructor(
         }
     }
 
-    fun getCompanyListings(
+    private fun getCompanyListings(
         query: String = state.searchQuery.lowercase(),
         fetchFromRemote: Boolean = false
     ) {
