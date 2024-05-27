@@ -3,8 +3,11 @@ package com.example.stockmarket.data.repository
 import android.net.http.HttpException
 import android.os.Build
 import androidx.annotation.RequiresExtension
+import com.example.stockmarket.data.csv.CSVParser
+import com.example.stockmarket.data.csv.CompanyListingsParser
 import com.example.stockmarket.data.local.StockDatabase
 import com.example.stockmarket.data.mapper.toCompanyListing
+import com.example.stockmarket.data.mapper.toCompanyListingEntity
 import com.example.stockmarket.data.remote.StockApi
 import com.example.stockmarket.domain.model.CompanyListing
 import com.example.stockmarket.domain.repository.StockRepository
@@ -17,8 +20,9 @@ import javax.inject.Singleton
 
 @Singleton
 class StockRepositoryImpl @Inject constructor(
-    val api: StockApi,
-    db: StockDatabase
+    private val api: StockApi,
+    db: StockDatabase,
+    val companyListingsParser: CSVParser<CompanyListing>
 ) : StockRepository {
 
     private val dao = db.dao
@@ -42,14 +46,29 @@ class StockRepositoryImpl @Inject constructor(
             }
             val remoteListing = try {
                 val response = api.getListings()
-
+                companyListingsParser.parse(response.byteStream())
             } catch (e: IOException) {
                 e.printStackTrace()
                 emit(Resource.Error("Could not load data"))
+                null
             } catch (e: HttpException) {
 
                 e.printStackTrace()
                 emit(Resource.Error("Could not load data"))
+                null
+            }
+
+            remoteListing?.let { listings ->
+                dao.clearCompanyListing()
+                dao.insertCompanyListing(
+                    listings.map { it.toCompanyListingEntity() }
+                )
+                emit(Resource.Success(
+                    data = dao
+                        .searchCompanyListing("")
+                        .map { it.toCompanyListing() }
+                ))
+                emit(Resource.Loading(false))
             }
         }
     }
