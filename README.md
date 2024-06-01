@@ -11,3 +11,5 @@ I define a "started" branch to set up the project, if you want to practice just 
 - Go to the "build.gradle.kts (Module)" and click "Sync now"
 
 Now you're ready to start!
+
+Note: Learning goes beyond copying. If you're serious about expanding your knowledge, I highly recommend following this video. Phill does a fantastic job explaining the app and the principles of clean architecture. As you build more apps, you'll gain the confidence to tackle complex projects on your own. Keep going!
