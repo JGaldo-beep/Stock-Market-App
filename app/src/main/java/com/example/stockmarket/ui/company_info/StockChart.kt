@@ -9,7 +9,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.PaintingStyle.Companion.Stroke
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.asAndroidPath
@@ -63,7 +62,7 @@ fun StockChart(
             }
         }
         val priceStep = (upperValue - lowerValue) / 5f
-        (0..5).forEach{ i->
+        (0..4).forEach{ i->
             drawContext.canvas.nativeCanvas.apply {
                 drawText(
                     round(lowerValue + priceStep * i).toString(),
