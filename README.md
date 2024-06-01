@@ -12,5 +12,7 @@ This branch has the solution of the project, it's all implemented and you can se
 - Checkpoint 8 - Company Info Screen
 
 ## Remember
-You can see the video from here: (Click here)[https://www.youtube.com/watch?v=uLs2FxFSWU4&t=1367s]
+You can see the video from here: [Click here](https://www.youtube.com/watch?v=uLs2FxFSWU4&t=1367s)
 The main goal of this repository is to practice Jetpack Compose and be confident in order to build more complex apps by applying clean architecture.
+
+Note: Learning goes beyond copying. If you're serious about expanding your knowledge, I highly recommend following this video. Phill does a fantastic job explaining the app and the principles of clean architecture. As you build more apps, you'll gain the confidence to tackle complex projects on your own. Keep going!
