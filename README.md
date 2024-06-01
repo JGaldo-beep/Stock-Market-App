@@ -1,6 +1,6 @@
 # Stock Market App
-Welcome to the Stock Market App. This is a project from YouTube by (Philipp Lackner)[https://www.youtube.com/@PhilippLackner].
-The purpose of this project is learning new concepts and be confident with Jetpack Compose and this could be the "last version" because we know Android is always changing.
+Welcome to the Stock Market App. This is a project from YouTube by [Philipp Lackner](https://www.youtube.com/@PhilippLackner).
+The purpose of this project is learning new concepts and be confident with Jetpack Compose and this could be recently version (01/06/2024) because we know Android is always changing (Dependencies version as well).
 
 ## Set up
 I define a "started" branch to set up the project, if you want to practice just clone the project and switch the branch to "started" or follow theses steps in your Android Studio:
