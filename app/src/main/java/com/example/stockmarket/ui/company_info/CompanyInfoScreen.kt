@@ -30,6 +30,7 @@ import com.ramcosta.composedestinations.annotation.Destination
 @Composable
 @Destination
 fun CompanyInfoScreen(
+    symbol: String,
     viewModel: CompanyInfoViewModel = hiltViewModel()
 ) {
     val state = viewModel.state
